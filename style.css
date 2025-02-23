@@ -1,5 +1,7 @@
 :root {
-  --bg-trans: rgba(241, 239, 227, 0.3);
+  --bg-trans: rgba(241, 239, 227, 0.9);
+  --bg-trans-10: rgba(241, 239, 227, 0.3);
+  --bg-layer-trans: rgba(0, 0, 0, 0.3);
   --bg-solid: rgb(241, 239, 227);
   --color-font: rgb(30, 30, 30);
   --color-header: rgb(80, 70, 50);
@@ -28,16 +30,22 @@ body {
   color: var(--color-font);
 }
 
+h1,
+h2,
+h3,
+h5,
+h6 {
+  color: var(--color-header);
+  font-family: 'Ms Madi', serif;
+}
+
 .container {
   width: 100%;
-  height: 100%;
-  margin: auto;
   padding: 0 0.5rem;
 }
 
 nav {
   width: 100%;
-  display: flex;
   justify-content: center;
   align-items: center;
 }
@@ -67,23 +75,38 @@ nav {
   color: white !important;
 }
 
-section {
+.hero {
+  background-image: url('./public/hero.JPG');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.hero-content {
+  text-align: center;
   width: 100%;
   height: 100vh;
   display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.hero .hero-content {
-  text-align: center;
-  width: 100%;
-  height: 80vh;
-  display: flex;
-  row-gap: 4rem;
-  justify-content: center;
+  justify-content: space-between;
   flex-direction: column;
   align-items: center;
+  padding: 8rem 0;
+  position: relative;
+}
+
+.hero-title,
+.hero-action {
+  z-index: 10;
+}
+
+.layer {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  bottom: 0;
+  top: 0;
+  background: var(--bg-trans-10);
+  z-index: 1;
 }
 
 .hero-title p {
@@ -91,13 +114,13 @@ section {
 }
 .hero-title h1 {
   font-size: var(--fontsize-xlarge);
-  color: var(--color-header);
   margin: 0.5rem 0;
+  color: var(--color-header);
 }
 
-.hero-action h3 {
+.hero-action h4 {
   margin: 1rem 0;
-  color: var(--color-header);
+  color: var(--bg-solid);
 }
 
 .hero-action button {
@@ -110,9 +133,16 @@ section {
   box-shadow: var(--shadow-md);
 }
 
+.home {
+  background-image: url('./public/bg1.JPG');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
 .home-content {
   width: 100%;
-  height: 100vh;
+  height: 120vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -122,18 +152,22 @@ section {
   width: 80%;
   height: 80vh;
   border-radius: 10rem;
-  background: var(--bg-solid);
+  background: var(--bg-trans);
   text-align: center;
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  border: solid 0.5rem var(--aksen);
+  border: solid 0.5rem var(--bg-trans);
 }
 
 .border-capsul .image {
   min-height: 70%;
   background-color: aqua;
   position: relative;
+  background-image: url('./public/IMG2.JPG');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
 }
 
 .border-capsul .image p {
@@ -142,6 +176,7 @@ section {
   width: 100%;
   text-align: center;
   font-size: var(--fontsize-small);
+  z-index: 5;
 }
 
 .text-content {
@@ -149,6 +184,7 @@ section {
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  color: var(--color-header);
 }
 
 .text-content button {
@@ -160,4 +196,42 @@ section {
   background: var(--aksen-trans);
   border-radius: 1rem;
   border: none;
+  color: white;
+}
+
+.quotes {
+  height: 50vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: var(--fontsize-small);
+  position: relative;
+  background-image: url('./public/bg2.JPG');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.quotes-title {
+  margin-bottom: 1rem;
+  font-size: 3rem;
+}
+
+.quotes-text {
+  z-index: 10;
+  padding: 0 1rem;
+}
+
+.ayat {
+  margin-top: 1rem;
+  font-style: italic;
+}
+
+.layer-solid {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: var(--bg-trans);
+  z-index: 1;
 }
